@@ -1,6 +1,6 @@
 ﻿namespace ecommerce_db.Models
 {
-    public class clientes
+    public class Clientes
     {
         public int Id { get; set; }
 
@@ -10,6 +10,7 @@
 
         public int telefone  { get; set; }
 
-        public string? endereco { get; set; }
+        public endereco? endereco { get; set; }
+
     }
 }
