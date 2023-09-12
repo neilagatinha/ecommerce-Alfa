@@ -6,8 +6,7 @@
         public  DateTime data  { get; set; }
         public float valorTotal { get; set; }
         public endereco? endereco { get; set; }
-
-        public ItemPedido? ItensPedido { get; set; }
+        public Clientes Clientes { get; set; }
         public ICollection<ItemPedido> ItensdoPedido { get; set; } = new List<ItemPedido>();
 
     }
