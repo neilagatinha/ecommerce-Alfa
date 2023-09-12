@@ -11,9 +11,9 @@ namespace ecommerce_db.Data
         
         public DbSet<Pedido> Pedidos { get; set; }
 
-        public DbSet<ItemPedido> ItensdoPedido { get; set; }
-
         public DbSet<Produto> Produtos { get; set; }
+
+        public DbSet<ItemPedido> ItensdoPedido { get; set; }
 
         public DbSet<endereco> Enderecos { get; set; }
 

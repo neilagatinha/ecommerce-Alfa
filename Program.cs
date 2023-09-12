@@ -1,3 +1,6 @@
+using ecommerce_db.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ecommerce_db
 {
     public class Program
@@ -5,6 +8,17 @@ namespace ecommerce_db
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var _mySqlaServerVersion = new MySqlServerVersion(new Version(8, 0, 33));
+
+            builder.Services.AddDbContext<AppDbContext>(
+                options => {
+                    options.UseMySql(
+                        builder.Configuration.GetConnectionString("DBString"),
+                        _mySqlaServerVersion
+                    );
+                }
+            ); 
 
             // Add services to the container.
             builder.Services.AddRazorPages();

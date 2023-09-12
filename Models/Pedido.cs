@@ -11,6 +11,7 @@ namespace ecommerce_db.Models
         public endereco? endereco { get; set; }
 
         public ICollection<ItemPedido> ItensdoPedido { get; set; } = new List<ItemPedido>();
+
         [ForeignKey("IdCliente")]
         public Clientes Cliente { get; set; }
 
