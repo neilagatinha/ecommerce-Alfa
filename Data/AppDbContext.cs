@@ -1,17 +1,15 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using ecommerce_db.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ecommerce_db.Data
 {
-    public class AppDbContext : AppDbContext {
+    public class AppDbContext : DbContext {
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { 
         }
 
-        public
-
-        public
-
-        public
+        public DbSet<ItemPedido> itensdoPedido { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             base.OnModelCreating(modelBuilder);
