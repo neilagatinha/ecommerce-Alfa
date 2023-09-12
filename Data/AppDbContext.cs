@@ -40,9 +40,7 @@ namespace ecommerce_db.Data
                 .HasForeignKey(i => i.idPedido)
                 .OnDelete(DeleteBehavior.Cascade);
 
-
-
         }
-      
+
     }
 }
