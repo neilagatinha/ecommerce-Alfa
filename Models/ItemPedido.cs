@@ -12,10 +12,10 @@ namespace ecommerce_db.Models
         public int quantidade { get; set; }
         public int valorUnitario { get; set; }
 
-        [ForeignKey("IdPedido")]
+        [ForeignKey("idPedido")]
         public Pedido pedido { get; set; }
 
-        [ForeignKey("IdProduto")]
+        [ForeignKey("idProduto")]
         public Produto produto { get; set; }
     }
 }
