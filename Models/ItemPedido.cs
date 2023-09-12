@@ -2,7 +2,10 @@
 
 namespace ecommerce_db.Models
 {
-    public class ItemPedido {
+
+    public class ItemPedido
+    {
+
         public int idPedido { get; set; }
         public int idProduto { get; set; }
         public string? descricao { get; set; }
