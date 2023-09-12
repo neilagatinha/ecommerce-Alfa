@@ -8,6 +8,7 @@
         public string? categoria { get; set; }
         public float? preco { get; set; }
         public int unidadeMedida { get; set; }
+
     
     }
 }
