@@ -8,5 +8,7 @@
             public string? categoria { get; set; }
             public float? preco { get; set; }
             public int unidadedeMedida { get; set; }
+            public ICollection<ItemPedido> ItensdoPedido { get; set; } = new List<ItemPedido>();
+
     }
 }

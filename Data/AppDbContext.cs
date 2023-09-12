@@ -25,19 +25,19 @@ namespace ecommerce_db.Data
 
 
             modelBuilder.Entity<ItemPedido>()
-                .HasKey(i => new { i.IdPedido, i.IdProduto });
+                .HasKey(i => new { i.idPedido, i.idProduto });
 
             modelBuilder.Entity<ItemPedido>()
-                .HasOne<Produto>(P => P.ItensdoPedido)
-                .WithMany(i => i.Produto)
-                .HasForeignKey(i => i.IdProduto)
+                .HasOne<Produto>(i => i.produto)
+                .WithMany(p => p.ItensdoPedido)
+                .HasForeignKey(i => i.idProduto)
                 .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<ItemPedido>()
-                .HasOne<Pedido>(pe => pe.ItensdoPedido)
+                .HasOne<Pedido>(pe => pe.pedido)
                 .WithMany(pe => pe.ItensdoPedido)
-                .HasForeignKey(i => i.IdPedido)
+                .HasForeignKey(i => i.idPedido)
                 .OnDelete(DeleteBehavior.Cascade);
 
 
