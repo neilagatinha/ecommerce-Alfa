@@ -28,15 +28,15 @@ namespace ecommerce_db.Data
                 .HasKey(i => new { i.IdPedido, i.IdProduto });
 
             modelBuilder.Entity<ItemPedido>()
-                .HasOne<Produto>(P => P.ItemPedido)
+                .HasOne<Produto>(P => P.ItensdoPedido)
                 .WithMany(i => i.Produto)
                 .HasForeignKey(i => i.IdProduto)
                 .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<ItemPedido>()
-                .HasOne<Pedido>(i => i.Pedido)
-                .WithMany(i => i.ItensdoPedido)
+                .HasOne<Pedido>(pe => pe.ItensdoPedido)
+                .WithMany(pe => pe.ItensdoPedido)
                 .HasForeignKey(i => i.IdPedido)
                 .OnDelete(DeleteBehavior.Cascade);
 
