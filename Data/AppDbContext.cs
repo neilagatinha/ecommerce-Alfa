@@ -8,19 +8,16 @@ namespace ecommerce_db.Data
 
         public AppDbContext(DbContextOptions options) : base(options) { 
         }
-
         
         public DbSet<Pedido> Pedidos { get; set; }
 
-        public DbSet<ItemPedido> ItensdoPedidos { get; set; }
+        public DbSet<ItemPedido> ItensdoPedido { get; set; }
 
         public DbSet<Produto> Produtos { get; set; }
 
         public DbSet<endereco> Enderecos { get; set; }
 
         public DbSet<Clientes> Cliente { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
