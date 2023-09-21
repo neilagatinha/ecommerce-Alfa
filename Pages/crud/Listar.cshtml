@@ -1,0 +1,34 @@
+﻿@page
+@model ecommerce_db.Pages.crud.ListarModel
+@{
+}
+
+<table>
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Email</td>
+			<td>Telefone</td>
+			<td>Ações</td>
+		</tr>
+	</thead>
+	<tbody>@foreach(var cliente in Model.clientes){
+		<tr>
+			<td>@cliente.Id</td>
+			<td>@cliente.Name</td>
+			<td>@cliente.email</td>
+			<td>@cliente.telefone</td>
+			<td>
+				<a>Editar</a>
+				<form
+					method="post"
+					asp-page-handler="delete"
+					asp-route-id="@cliente.Id"
+				>
+				    <button>Excluir</button>
+				</form>
+			</td>
+		</tr>
+	}</tbody>
+</table>

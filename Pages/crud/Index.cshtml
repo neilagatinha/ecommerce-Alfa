@@ -3,6 +3,12 @@
 @{
 }
 
+<h1>
+	@Model.Nome 
+</h1>
+
+@if (Model.Num == null){
+	
 <table>
 	<thead>
 		<tr>
@@ -12,9 +18,17 @@
 		</tr>
 	</thead>
 	<tbody>
+@for(int i = 1; i<=10; i++){
+     	<tr>
+			<td>@Model.Num</td> 
+			<td>@i</td>
+			<td>@(Model.Num * i)</td>
+	    </tr>			
+			}
 
 
 
 	</tbody>
 </table>
+}
 	
