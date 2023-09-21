@@ -17,7 +17,7 @@ namespace ecommerce_db.Data
 
         public DbSet<endereco> Enderecos { get; set; }
 
-        public DbSet<Clientes> Cliente { get; set; }
+        public DbSet<Clientes> cliente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 

@@ -1,0 +1,18 @@
+﻿@page
+@model ecommerce_db.Pages.crud.IncluirModel
+@{
+}
+
+<form method="post">
+    Nome:
+    <input asp-for="clientes.Name"/>
+    <br />
+    Email:
+    <input asp-for="clientes.email"/>
+    <br />
+    Telefone:
+    <input asp-for="clientes.telefone"/>
+    <br />
+    <br />
+    <input type="submit" value="Enviar"/>
+</form>
