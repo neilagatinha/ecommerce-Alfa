@@ -15,22 +15,24 @@ namespace ecommerce_db.Pages.CRUD
         {
             _context = context;
         }
+        public void OnGet(){
+        }
+
 
 		[BindProperty]
         public Clientes clientes { get; set; }
-        public void OnGet(){
-        }
+      
 
         public async Task<IActionResult> OnPostAsync(){
             try{
                 _context.Cliente.Add(clientes);
                 await _context.SaveChangesAsync();
-            }
-            catch{
+
+            }catch{
                 Debug.WriteLine(clientes.Name);
             }
             
-            return Page();
+            return  RedirectToPage("./Listar");
 		}
     }
 }
