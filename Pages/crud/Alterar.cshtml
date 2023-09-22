@@ -1,0 +1,19 @@
+﻿@page
+@model ecommerce_db.Pages.crud.AlterarModel
+@{
+}
+<form method="post">
+
+    <input type="hidden"asp-for="clientes.Id" />
+    Nome:
+    <input asp-for="clientes.Name" />
+    <br />
+    Email:
+    <input asp-for="clientes.email" />
+    <br />
+    Telefone:
+    <input asp-for="clientes.telefone" />
+    <br />
+    <br />
+    <input type="submit" value="Enviar" />
+</form>
