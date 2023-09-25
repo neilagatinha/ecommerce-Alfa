@@ -14,18 +14,21 @@ namespace ecommerce_db.Pages.ProdutoCRUD
         }
 
         [BindProperty]
-        public Produto produto { get; set; }
+        public Produto Produtos { get; set; }
         public async Task<IActionResult> OnGet(int id) {
-            produto = await _context.Produtos.FirstOrDefaultAsync(c => c .Id == id);
+            Produtos = await _context
+                              .Produtos
+                              .FirstOrDefaultAsync(p => p.Id == id);
 
             return Page();
         }
         public async Task<IActionResult> OnPostAsync() {
-            _context.Attach(produto).State = EntityState.Modified;
+            _context.Attach(Produtos).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Alterar");
         }
+
     }
 }
     

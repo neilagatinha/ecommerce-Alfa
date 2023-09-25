@@ -2,17 +2,16 @@
 @model ecommerce_db.Pages.ProdutoCRUD.AlterarProduto
 @{
 }
-Z
 <form method="post">
-    <input type="hidden" asp-for="produto.Id" />
+    <input type="hidden" asp-for="Produtos.Id" />
     nome:
-    <input asp-for="produto.nome" />
+    <input asp-for="Produtos.nome" />
     <br />
     Descrição:
-    <input asp-for="produto.descricao" />
+    <input asp-for="Produtos.descricao" />
     <br />
     Categoria:
-    <input asp-for="produto.categoria" />
+    <input asp-for="Produtos.categoria" />
     <br />
     <br />
     <input type="submit" value="Enviar" />

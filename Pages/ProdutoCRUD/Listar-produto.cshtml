@@ -1,5 +1,5 @@
 ﻿@page
-@model ecommerce_db.Pages.produto_crud.ListarModel
+@model ListarModel
 @{
 }
 <a class="btn btn-primary" asp-page="./Incluir">
@@ -8,11 +8,11 @@
 <table class="table">
     <thead>
         <tr>
-            <td>id</td>
-            <td>nome</td>
-            <td>descricao</td>
-            <td>categoria</td>
-            <td>unidadedeMedida</td>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Descricao</td>
+            <td>Categoria</td>
+            <td>Unidade de Medida</td>
         </tr>
     </thead>
     <tbody>@foreach (ecommerce_db.Models.Produto Produtos in Model.Produtos){
@@ -22,7 +22,7 @@
             <td>@Produtos.descricao</td>
             <td>@Produtos.categoria</td>
             <td>@Produtos.unidadedeMedida</td>
-            <td>
+
                 <a asp-page="./alterar"
                 asp-route-id="@Produtos.Id"
                 class="btn btn-primary"
@@ -41,8 +41,6 @@
                  <button class="btn btn-danger">Excluir</button>
                  
                 </form>
-
-            </td>
         </tr>
     }</tbody>
 </table>
