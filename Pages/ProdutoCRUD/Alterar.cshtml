@@ -1,0 +1,24 @@
+﻿@page
+@model ecommerce_db.Pages.ProdutoCRUD.AlterarProduto
+@{
+}
+Z
+<form method="post">
+    <input type="hidden" asp-for="produto.Id" />
+    nome:
+    <input asp-for="produto.nome" />
+    <br />
+    Descrição:
+    <input asp-for="produto.descricao" />
+    <br />
+    Categoria:
+    <input asp-for="produto.categoria" />
+    <br />
+    <br />
+    <input type="submit" value="Enviar" />
+   
+</form>
+
+
+    
+    
