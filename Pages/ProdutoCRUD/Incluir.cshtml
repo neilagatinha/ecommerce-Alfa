@@ -1,0 +1,24 @@
+﻿@page
+@model ecommerce_db.Pages.ProdutoCRUD.IncluirModel
+@{
+}
+
+<form method="post">
+    Nome:
+    <input asp-for="produto.nome"/>
+    <br />
+    Endereço:
+    <input asp-for="produto.descricao"/>
+    <br />
+    Categoria:
+    <input asp-for="produto.categoria"/>
+    <br />
+    Preço:
+    <input asp-for="produto.preco"/>
+    <br />
+    Unidade de Medida:
+    <input asp-for="produto.unidadedeMedida"/>
+    <br />
+    <br />
+    <input type="submit" value="Enviar"/>
+</form>
