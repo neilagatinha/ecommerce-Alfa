@@ -1,0 +1,49 @@
+﻿@page
+@model ecommerce_db.Pages.produto_crud.Listar_produtoModel
+@{
+}
+<a class="btn btn-primary" asp-page="./Incluir">
+    Incluir	
+</a>
+<table class="table">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>nome</td>
+            <td>descricao</td>
+            <td>categoria</td>
+            <td>unidadedeMedida</td>
+        </tr>
+    </thead>
+    <tbody>@foreach (ecommerce_db.Models.Produto Produtos in Model.Produtos){
+        <tr>
+            <td>@Produtos.Id</td>
+            <td>@Produtos.nome</td>
+            <td>@Produtos.descricao</td>
+            <td>@Produtos.categoria</td>
+            <td>@Produtos.unidadedeMedida</td>
+            <td>
+                <a asp-page="./alterar"
+                asp-route-id="@Produtos.Id"
+                class="btn btn-primary"
+                >
+                
+                Editar
+            
+            
+                </a>
+
+                <form
+                    method="post"
+                    asp-page-handler="delte"
+                    asp-page-id="@Produtos.Id"
+                >
+                 <button class="btn btn-danger">Excluir</button>
+                 
+                </form>
+
+            </td>
+        </tr>
+    }</tbody>
+</table>
+
