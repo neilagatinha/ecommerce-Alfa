@@ -1,0 +1,38 @@
+﻿@page
+@model ecommerce_db.Pages.CRUD.ListarModel
+@{
+}
+<a asp-page="./inclir">
+   incluir	
+</a>
+
+<table class="table">
+	<thead>
+		<tr>
+
+			<td>id</td>
+			<td>nome</td>
+			<td>data de nascimento</td>
+			<td>CPF</td>
+			<td>Email</td>
+			<td>Ações</td>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (ecommerce_db.Models.Clientes cliente in Model.clientes) {
+			<tr>
+				<td>@cliente.Id</td>
+				<td>@cliente.Name</td>
+				<td>@cliente.email</td>
+				<td>@cliente.telefone</td>
+				<td>
+
+
+				</td>
+
+			
+			</tr>
+		} 
+	</tbody>
+</table>

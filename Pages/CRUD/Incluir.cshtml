@@ -1,0 +1,24 @@
+﻿@page
+@model ecommerce_db.Pages.ClienteCRUD.CRUD.IncluirModel
+@{
+}
+
+<form method="post">
+	 Nome:
+	<input asp-for="cliente.Name"/>
+	<br />
+	 CPF:
+	<input class="form control" asp-form="cliente.CPF" />
+    <br />
+	DataDeNascimento:
+	<input class="form control" asp-form="cliente.DataNascimento"/>
+    <br />
+	Email:
+	<input class="form control" asp-form="cliente.Email"/>
+    <br />
+	Enviar:
+	<br />
+	<input type="submit" value="Enviar"/> 
+
+</form>
+
