@@ -1,0 +1,41 @@
+﻿@page
+@model ecommerce_db.Pages.crud.IndexModel
+@{
+}
+
+<style>
+    table{
+        background-color: black;
+    }
+
+    table thead td{
+        background-color: lawngreen;
+    }
+
+    table tbody td {
+        background-color: white;
+    }
+</style>
+
+<h1>
+    @Model.Nome
+</h1>
+<table>
+    <thead>
+        <tr>
+            <td colspan="3">Tabuada </td>
+        </tr>
+    </thead>
+    <tbody>
+        @for( int i = 1; i <= 10; i++)
+        {
+            <tr>
+                <td>@Model.Num</td>
+                <td>@i</td>
+                <td>@(Model.Num*i)</td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

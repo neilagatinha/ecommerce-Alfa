@@ -1,0 +1,47 @@
+﻿@page
+@model ecommerce_db.Pages.crud.ListarModel
+@{
+}
+<a class="btn btn-primary" asp-page="./Incluir">
+    Incluir
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Telefone</td>
+            <td>Ações</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ecommerce_db.Models.Clientes cliente in Model.clientes) {
+            <tr>
+                <td>@cliente.Id</td>
+                <td>@cliente.Name</td>
+                <td>@cliente.email</td>
+                <td>@cliente.telefone</td>
+                
+                <td>
+                       
+                        <a 
+                            asp-page="./Alterar"
+                            asp-route-id="@cliente.Id"
+                            class="btn btn-primary"
+                        >
+                            Editar
+                        </a>
+
+                       <form
+                           method="post"
+                           asp-page-handler="delete"
+                           asp-route-id="@cliente.Id"
+                       > 
+                           <button class="btn btn-danger">Excluir</button>
+                       </form>
+                </td>
+            </tr>
+    }</tbody>
+</table>
