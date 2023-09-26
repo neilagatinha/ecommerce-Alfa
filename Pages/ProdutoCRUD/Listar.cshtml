@@ -2,9 +2,8 @@
 @model ListarModel
 @{
 }
-<a class="btn btn-primary" asp-page="./Incluir">
-    Incluir	
-</a>
+<h1> Lista de Produtos</h1>
+
 <table class="table">
     <thead>
         <tr>
@@ -13,7 +12,6 @@
             <td>Descricao</td>
             <td>Categoria</td>
             <td>Unidade de Medida</td>
-            <td>Ações</td>
         </tr>
     </thead>
     <tbody>@foreach (ecommerce_db.Models.Produto Produtos in Model.Produtos){
@@ -24,19 +22,38 @@
             <td>@Produtos.categoria</td>
             <td>@Produtos.unidadedeMedida</td>
             <td>
-					<a asp-page="./alterar"
-					   asp-route-id="@Produtos.Id"
-					   class="btn btn-primary">
-						Editar
-					</a>
-
-					<form method="post"
-						  asp-page-handler="delete"
-						  asp-route-id="@Produtos.Id">
-						<button class="btn btn-danger">Excluir</button>
-					</form>
 
             </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Opções
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-page="./alterar"
+					               asp-route-id="@Produtos.Id"
+                                   class="dropdown-item">
+                                    Editar
+                               </a>
+                               </li>
+                            <li>
+                                <form method="post"
+                                      asp-page-handler="delete"
+                                      asp-route-id="@Produtos.Id">
+                                    <button class="dropdown-item">Excluir</button>
+                                </form>
+                            </li>
+                            <li>
+                                <a asp-page="./alterar"
+                                   asp-route-id="@Produtos.Id"
+                                   class="dropdown-item">
+                                    Incluir
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
                 
         </tr>
     }</tbody>
