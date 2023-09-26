@@ -34,7 +34,7 @@ namespace ecommerce_db.Pages.ProdutoCRUD
             {
                 Debug.WriteLine(produto.nome);
             }
-            return Page();
+            return RedirectToPage ("./Listar");
         }
     }
 }

@@ -13,6 +13,7 @@
             <td>Descricao</td>
             <td>Categoria</td>
             <td>Unidade de Medida</td>
+            <td>Ações</td>
         </tr>
     </thead>
     <tbody>@foreach (ecommerce_db.Models.Produto Produtos in Model.Produtos){
@@ -22,25 +23,21 @@
             <td>@Produtos.descricao</td>
             <td>@Produtos.categoria</td>
             <td>@Produtos.unidadedeMedida</td>
+            <td>
+					<a asp-page="./alterar"
+					   asp-route-id="@Produtos.Id"
+					   class="btn btn-primary">
+						Editar
+					</a>
 
-                <a asp-page="./alterar"
-                asp-route-id="@Produtos.Id"
-                class="btn btn-primary"
-                >
+					<form method="post"
+						  asp-page-handler="delete"
+						  asp-route-id="@Produtos.Id">
+						<button class="btn btn-danger">Excluir</button>
+					</form>
+
+            </td>
                 
-                Editar
-            
-            
-                </a>
-
-                <form
-                    method="post"
-                    asp-page-handler="delte"
-                    asp-page-id="@Produtos.Id"
-                >
-                 <button class="btn btn-danger">Excluir</button>
-                 
-                </form>
         </tr>
     }</tbody>
 </table>

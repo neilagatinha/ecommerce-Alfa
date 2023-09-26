@@ -26,7 +26,7 @@ namespace ecommerce_db.Pages.ProdutoCRUD
             _context.Attach(Produtos).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Alterar");
+            return RedirectToPage("./Listar");
         }
 
     }
