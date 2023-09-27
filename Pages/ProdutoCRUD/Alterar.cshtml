@@ -4,15 +4,33 @@
 }
 <form method="post">
     <input type="hidden" asp-for="Produtos.Id" />
-    nome:
-    <input asp-for="Produtos.nome" />
-    <br />
-    Descrição:
-    <input asp-for="Produtos.descricao" />
-    <br />
-    Categoria:
-    <input asp-for="Produtos.categoria" />
-    <br />
+    <!--cria uma linha para ser renderizada-->
+    <div class="row">
+        <!--cria uma coluna que irá ocupar 4/12 do tamanho da tela-->
+        <div class="col-4">
+            <label asp-for="Produtos.nome">Nome:</label>
+            <input asp-for="Produtos.nome" class="form-control" />
+            <span asp-validation-for="Produtos.nome" class="text-danger"></span>
+        </div>
+        <br />
+
+        <div class="col-4">
+            <label asp-for="Produtos.descricao">Descrição:</label>
+            <input asp-for="Produtos.descricao" class="form-control" />
+            <span asp-validation-for="Produtos.descricao" class="text-danger"></span>
+        </div>
+        <br />
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <label asp-for="Produtos.categoria">Categoria:</label>
+            <input asp-for="Produtos.categoria" class="form-control" />
+            <span asp-validation-for="Produtos.categoria" class="text-danger"></span>
+        </div>
+        <br />
+    </div>
+
     <br />
     <input type="submit" value="Enviar" />
    
