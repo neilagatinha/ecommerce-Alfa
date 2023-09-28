@@ -15,7 +15,8 @@ namespace ecommerce_db
                 options => {
                     options.UseMySql(
                         builder.Configuration.GetConnectionString("DBString"),
-                        _mySqlaServerVersion
+                        _mySqlaServerVersion,
+                        option => option.EnableRetryOnFailure()
                     );
                 }
             ); 

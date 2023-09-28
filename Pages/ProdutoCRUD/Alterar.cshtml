@@ -2,6 +2,9 @@
 @model ecommerce_db.Pages.ProdutoCRUD.AlterarProduto
 @{
 }
+
+<h1>Alterar o produto "@Model.Produtos.nome"</h1>
+
 <form method="post">
     <input type="hidden" asp-for="Produtos.Id" />
     <!--cria uma linha para ser renderizada-->
@@ -32,7 +35,7 @@
     </div>
 
     <br />
-    <input type="submit" value="Enviar" />
+    <input type="submit" value="Alterar" />
    
 </form>
 

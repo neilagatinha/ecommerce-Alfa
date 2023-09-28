@@ -15,20 +15,46 @@ namespace ecommerce_db.Pages.ProdutoCRUD
 
         [BindProperty]
         public Produto Produtos { get; set; }
-        public async Task<IActionResult> OnGet(int id) {
-            Produtos = await _context
-                              .Produtos
-                              .FirstOrDefaultAsync(p => p.Id == id);
+        public async Task<IActionResult> OnGet(int Id) {
+
+            if(Id == null) {  
+                return NotFound(); 
+            }
+
+            Produtos = await _context.Produtos.FirstOrDefaultAsync(p => p.Id == Id);
+
+            if (Produtos == null) {
+                return NotFound();
+            }
 
             return Page();
         }
         public async Task<IActionResult> OnPostAsync() {
+            if (!ModelState.IsValid) {
+                return Page();
+            }
             _context.Attach(Produtos).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }catch (DbUpdateConcurrencyException error) {
+                if (!ProdutoAindaExiste(Produtos.Id))
+                {
+                    return NotFound();
+                } else { throw error; }
+
+            } catch
+            {
+                return Page();
+            }
 
             return RedirectToPage("./Listar");
         }
 
+        private bool ProdutoAindaExiste(int id) {
+            return _context.Produtos.Any(c  => c.Id == id);
+        }
     }
 }
     
