@@ -18,7 +18,7 @@ namespace ecommerce_db.Models
 
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public int telefone  { get; set; }
+        public string telefone  { get; set; }
 
         public endereco? endereco { get; set; }
 

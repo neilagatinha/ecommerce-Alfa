@@ -24,11 +24,13 @@ namespace ecommerce_db.Pages.crud
 
         public async Task<IActionResult> OnPostAsync() {
 
+            Debug.WriteLine(ModelState.IsValid);
+
             var clientes = new Clientes();
 
             bool validado = await TryUpdateModelAsync<Clientes>(
                                         clientes,
-                                        "cliente",
+                                        "clientes",
                                         c => c.Name, c => c.telefone,c => c.email
                                     );
 
