@@ -21,7 +21,7 @@ namespace ecommerce_db.Pages
         public async Task Onget(){
             Produtos = await _context.Produtos.ToListAsync();
 
-            
+              
         }
     }
 }

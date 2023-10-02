@@ -12,7 +12,7 @@ namespace ecommerce_db.Models
 
         [EmailAddress(ErrorMessage = "O campo {Nome} deve conter um endereço de e-mail válido")]
         public string? email  { get; set; }
-        [MaxLength(11, ErrorMessage = "O campo {telefone} deve ter no mínimo {9} caracteres.")]
+        [MinLength(11, ErrorMessage = "O campo {telefone} deve ter no mínimo {9} caracteres.")]
         public int telefone  { get; set; }
 
         public endereco? endereco { get; set; }
