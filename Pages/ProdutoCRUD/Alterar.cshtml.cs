@@ -1,16 +1,29 @@
+using CodigoApoio;
 using ecommerce_db.Data;
 using ecommerce_db.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ecommerce_db.Pages.ProdutoCRUD
 {
     public class AlterarProduto : PageModel {
+
         private readonly AppDbContext _context;
 
-        public AlterarProduto(AppDbContext context) {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        //[BindProperty]
+        //public Produto Produto { get; set; }
+        public string CaminhoImagem { get; set; }
+
+        [BindProperty]
+        [Display(Name = "Imagem do Produto")]
+        public IFormFile ImagemProduto { get; set; }
+        public AlterarProduto(AppDbContext context, IWebHostEnvironment webHostEnvironment) {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [BindProperty]
@@ -27,6 +40,8 @@ namespace ecommerce_db.Pages.ProdutoCRUD
                 return NotFound();
             }
 
+            CaminhoImagem = $"~/img/produto/{Produtos.Id:D6}.jpg";
+
             return Page();
         }
         public async Task<IActionResult> OnPostAsync() {
@@ -38,6 +53,10 @@ namespace ecommerce_db.Pages.ProdutoCRUD
             try
             {
                 await _context.SaveChangesAsync();
+                //Se há uma imagem de produto submetida
+                if (ImagemProduto != null)
+                    await AppUtils.ProcessarArquivoDeImagem(Produtos.Id, ImagemProduto, _webHostEnvironment);
+
             }catch (DbUpdateConcurrencyException error) {
                 if (!ProdutoAindaExiste(Produtos.Id))
                 {
