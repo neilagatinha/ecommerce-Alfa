@@ -2,19 +2,56 @@
 @model ecommerce_db.Pages.ProdutoCRUD.AlterarProduto
 @{
 }
-<form method="post">
+
+<h1>Alterar o produto "@Model.Produtos.nome"</h1>
+
+<form method="post"
+      class="mt-3"
+      enctype="multipart/form-data">
+
     <input type="hidden" asp-for="Produtos.Id" />
-    nome:
-    <input asp-for="Produtos.nome" />
+    <!--cria uma linha para ser renderizada-->
+    <div class="row">
+        <!--cria uma coluna que irá ocupar 4/12 do tamanho da tela-->
+        <div class="col-4">
+            <label asp-for="Produtos.nome">Nome:</label>
+            <input asp-for="Produtos.nome" class="form-control" />
+            <span asp-validation-for="Produtos.nome" class="text-danger"></span>
+        </div>
+        <br />
+
+        <div class="col-4">
+            <label asp-for="Produtos.descricao">Descrição:</label>
+            <input asp-for="Produtos.descricao" class="form-control" />
+            <span asp-validation-for="Produtos.descricao" class="text-danger"></span>
+        </div>
+        <br />
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <label asp-for="Produtos.categoria">Categoria:</label>
+            <input asp-for="Produtos.categoria" class="form-control" />
+            <span asp-validation-for="Produtos.categoria" class="text-danger"></span>
+        </div>
+        <br />
+    </div>
+        <div class="col-4">
+            <label asp-for="ImagemProduto"
+            class="control-label"></label>
+            <input asp-for="ImagemProduto"
+            class="custom-file-input" accept="image/*" />
+            <span asp-validation-for="ImagemProduto" class="text-danger"></span>
+        </div>
+
+        <div class="col-4">
+            <img src="@Model.CaminhoImagem"
+            class="image-thumbnail"
+            asp-append-version="true" />
+
+        </div>
     <br />
-    Descrição:
-    <input asp-for="Produtos.descricao" />
-    <br />
-    Categoria:
-    <input asp-for="Produtos.categoria" />
-    <br />
-    <br />
-    <input type="submit" value="Enviar" />
+    <input type="submit" value="Alterar" />
    
 </form>
 
