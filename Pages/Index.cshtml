@@ -13,8 +13,9 @@
         @foreach(var produto in Model.Produtos){
     <div class="col-3">
             
-        <div class="card" style="width: 18rem;">
-            <img src="~/img/produtos/sem_imagem.jpg" class="card-img-top" alt="...">
+        <div class="card-img-top" style="width: 18rem;">
+            <img 
+                src="~/img/produtos/@String.Concat(produto.Id.ToString("D6"),".jpg")">
             <div class="card-body">
                 <h5 class="card-title">@produto.nome</h5>
                 <p class="card-text">@produto.descricao</p>
