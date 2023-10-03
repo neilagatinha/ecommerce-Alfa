@@ -10,6 +10,9 @@
       enctype="multipart/form-data">
 
     <input type="hidden" asp-for="Produtos.Id" />
+
+    Nome:
+    <input asp-for="Produtos.nome" />
     <!--cria uma linha para ser renderizada-->
     <div class="row">
         <!--cria uma coluna que irá ocupar 4/12 do tamanho da tela-->
@@ -51,6 +54,7 @@
             asp-append-version="true" />
 
         </div>
+
     <br />
     <input type="submit" value="Alterar" />
    

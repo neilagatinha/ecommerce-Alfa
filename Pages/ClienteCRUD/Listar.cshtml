@@ -2,9 +2,7 @@
 @model ecommerce_db.Pages.crud.ListarModel
 @{
 }
-<a class="btn btn-primary" asp-page="./Incluir">
-    Incluir
-</a>
+<h1> Produtos</h1>
 
 <table class="table">
     <thead>
@@ -23,23 +21,35 @@
                 <td>@cliente.Name</td>
                 <td>@cliente.email</td>
                 <td>@cliente.telefone</td>
+
+
+                <td>
+
+					<a  class="btn btn-outline-success" asp-page="./Incluir">
+						Incluir
+					</a>
+
+
+                </td>
                 
                 <td>
-                       
-                        <a 
+
+                    <a class="btn btn-outline-warning"
                             asp-page="./Alterar"
                             asp-route-id="@cliente.Id"
-                            class="btn btn-primary"
-                        >
-                            Editar
+ 
+                    >
+                            Alterar
                         </a>
+                </td>
+                <td>
 
                        <form
                            method="post"
                            asp-page-handler="delete"
                            asp-route-id="@cliente.Id"
-                       > 
-                           <button class="btn btn-danger">Excluir</button>
+                       >
+                        <button class="btn btn-outline-danger">Excluir</button>
                        </form>
                 </td>
             </tr>

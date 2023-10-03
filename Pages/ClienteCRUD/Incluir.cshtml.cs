@@ -15,8 +15,7 @@ namespace ecommerce_db.Pages.crud
             _context = context;
         }
 
-        public void OnGet()
-        {
+        public void OnGet(){
            
         }
 
@@ -24,15 +23,25 @@ namespace ecommerce_db.Pages.crud
         public Clientes clientes { get; set; }
 
         public async Task<IActionResult> OnPostAsync() {
-            try{
+
+            Debug.WriteLine(ModelState.IsValid);
+
+            var clientes = new Clientes();
+
+            bool validado = await TryUpdateModelAsync<Clientes>(
+                                        clientes,
+                                        "clientes",
+                                        c => c.Name, c => c.telefone,c => c.email
+                                    );
+
+            if ( validado ) {
                 _context.cliente.Add(clientes);
                 await _context.SaveChangesAsync();
-            
-            }catch{
-                Debug.WriteLine(clientes.Name);
-            }
 
-            return RedirectToPage("./Listar");
+                return RedirectToPage("./Listar");
+            }  else {
+                return Page();
+            }
         }
     }
 }

@@ -4,15 +4,30 @@
 }
 
 <form method="post">
-    Nome:
-    <input asp-for="clientes.Name"/>
+
+    <div class="row">
+        <div class="col-4">
+            <label asp-for="clientes.Name">Nome:</label>
+            <input asp-for="clientes.Name" class="form-control" />
+            <span asp-validation-for="clientes.Name" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label asp-for="clientes.email">Email:</label>
+            <input asp-for="clientes.email" class="form-control"/>
+            <span asp-validation-for="clientes.email" class="text-danger"></span>
+        </div>
+        
+
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label asp-for="clientes.telefone">Telefone:</label>
+            <input asp-for="clientes.telefone" class="form-control" />
+            <span asp-validation-for="clientes.telefone" class="text-danger"></span>
+        </div>
+    </div>
+
     <br />
-    Email:
-    <input asp-for="clientes.email"/>
     <br />
-    Telefone:
-    <input asp-for="clientes.telefone"/>
-    <br />
-    <br />
-    <input type="submit" value="Enviar"/>
+    <input class=" btn btn-outline-dark" type="submit" value="Incluir"/>
 </form>
