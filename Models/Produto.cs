@@ -6,16 +6,14 @@ namespace ecommerce_db.Models
     {
             [Key]
             public int Id { get; set; }
-
             [MaxLength(100, ErrorMessage = "O campo {0} deve ter tamanho igual a {1}")]
-
-            [MinLength(10, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
+            [MinLength(11, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
             public string? nome { get; set; }
 
-            [MaxLength(11, ErrorMessage = "O campo {0} deve ter tamanho igual a {1}")]
-
-            [MinLength(11, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
+            [MaxLength(100, ErrorMessage = "O campo {0} deve ter tamanho igual a {1}")]
+            [MinLength(1, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
             public string? descricao { get; set; }
+
             public string? categoria { get; set; }
             public float? preco { get; set; }
             public int unidadedeMedida { get; set; }

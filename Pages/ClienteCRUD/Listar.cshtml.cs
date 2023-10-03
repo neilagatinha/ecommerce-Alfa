@@ -23,6 +23,10 @@ namespace ecommerce_db.Pages.crud
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(int? id){
+            if (id == null){
+                return Page();  
+
+            }
 
             var cliente = await _context.cliente.FirstOrDefaultAsync( c => c.Id == id);
 
