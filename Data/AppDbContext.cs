@@ -1,10 +1,11 @@
 ﻿using ecommerce_db.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography.X509Certificates;
 
 namespace ecommerce_db.Data
 {
-    public class AppDbContext : DbContext {
+    public class AppDbContext : IdentityDbContext<AppUser>{
 
         public AppDbContext(DbContextOptions options) : base(options) { 
         }
