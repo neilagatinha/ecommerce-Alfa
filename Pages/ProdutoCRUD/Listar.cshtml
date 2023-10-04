@@ -3,7 +3,13 @@
 @{
 }
 <h1> Produtos </h1>
-
+    <div>
+	<a asp-page="./Incluir"
+	   class="btn btn-outline-success">
+		Incluir
+	</a>
+    </div>
+   
 <table class="table">
     <thead>
         <tr>
@@ -11,12 +17,15 @@
             <td>Nome</td>
             <td>Descricao</td>
             <td>Categoria</td>
-            <td>Unidade de Medida</td>
-            <td></td>
-        </tr>
+			<td>Unidade de Medida</td>
+			<td></td>
+
+		</tr>
+		
     </thead>
     <tbody>@foreach (ecommerce_db.Models.Produto Produtos in Model.Produtos){
-        <tr>
+			<tr>
+				
             <td>@Produtos.Id</td>
             <td>@Produtos.nome</td>
             <td>@Produtos.descricao</td>
@@ -38,7 +47,6 @@
                 </a>
                             
                           
-
                          
                 <form method="post"
                         asp-page-handler="delete"
