@@ -20,22 +20,22 @@ namespace ecommerce_db.Pages.crud
         }
 
         [BindProperty]
-        public Clientes clientes { get; set; }
+        public Cliente clientes { get; set; }
 
         public async Task<IActionResult> OnPostAsync() {
 
             Debug.WriteLine(ModelState.IsValid);
 
-            var clientes = new Clientes();
+            var clientes = new Cliente();
 
-            bool validado = await TryUpdateModelAsync<Clientes>(
+            bool validado = await TryUpdateModelAsync<Cliente>(
                                         clientes,
                                         "clientes",
-                                        c => c.Name, c => c.telefone,c => c.email
+                                        c => c.Nome, c => c.Telefone,c => c.Email
                                     );
 
             if ( validado ) {
-                _context.cliente.Add(clientes);
+                _context.Clientes.Add(clientes);
                 await _context.SaveChangesAsync();
 
                 return RedirectToPage("./Listar");

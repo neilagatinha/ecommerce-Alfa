@@ -39,7 +39,7 @@ namespace ecommerce_db.Pages
         }
 
         [BindProperty]
-        public Clientes Cliente { get; set; }
+        public Cliente Cliente { get; set; }
 
         [BindProperty]
         public Senha SenhasUsuarios { get; set; }
@@ -53,8 +53,8 @@ namespace ecommerce_db.Pages
 
         public async Task<IActionResult> OnPostAsync(){
             //cria um novo objeto Cliente
-            var cliente = new Clientes();
-            cliente.endereco = new endereco();
+            var cliente = new Cliente();
+            cliente.Endereco = new Endereco();
 
             Debug.WriteLine(ModelState.IsValid);
 
@@ -72,7 +72,7 @@ namespace ecommerce_db.Pages
                 }
 
                 //verifica se já existe um usuário com o e-mail informado
-                var usuarioExistente = await _userManager.FindByEmailAsync(cliente.email);
+                var usuarioExistente = await _userManager.FindByEmailAsync(cliente.Email);
                 if (usuarioExistente != null)
                 {
                     //adiciona um erro na propriedade Email do cliente para que o campo apresente o erro no formulário
@@ -84,10 +84,10 @@ namespace ecommerce_db.Pages
                 //cria o objeto usuário Identity e adiciona ao perfil "cliente"
                 var usuario = new AppUser()
                 {
-                    UserName = cliente.email,
-                    Email = cliente.email,
-                    PhoneNumber = cliente.telefone,
-                    Nome = cliente.Name
+                    UserName = cliente.Email,
+                    Email = cliente.Email,
+                    PhoneNumber = cliente.Telefone,
+                    Nome = cliente.Nome
                 };
 
                 //cria usuário no banco de dados
@@ -100,7 +100,7 @@ namespace ecommerce_db.Pages
                     await _userManager.AddToRoleAsync(usuario, "cliente");
 
                     //adiciona o novo objeto cliente ao contexto de banco de dados atual e salva no banco de dados
-                    _context.cliente.Add(cliente);
+                    _context.Clientes.Add(cliente);
                     int afetados = await _context.SaveChangesAsync();
                     //se salvou o cliente no banco de dados
                     if (afetados > 0)

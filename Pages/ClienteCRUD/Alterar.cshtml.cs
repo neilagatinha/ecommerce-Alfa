@@ -15,10 +15,10 @@ namespace ecommerce_db.Pages.crud
         }
 
         [BindProperty]
-        public Clientes clientes { get; set; }
+        public Cliente clientes { get; set; }
         public async Task<IActionResult> OnGet(int id)
         {
-            clientes = await _context.cliente.FirstOrDefaultAsync(c => c.Id == id);
+            clientes = await _context.Clientes.FirstOrDefaultAsync(c => c.Id == id);
             if(clientes == null)
             {
                 return NotFound();
@@ -50,7 +50,7 @@ namespace ecommerce_db.Pages.crud
         
         }       
         private bool ClienteAindaExiste(int? id){
-            return _context.cliente.Any(c => c.Id == id);
+            return _context.Clientes.Any(c => c.Id == id);
         }
 
     }

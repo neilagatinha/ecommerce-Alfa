@@ -15,12 +15,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (ecommerce_db.Models.Clientes cliente in Model.clientes) {
+        @foreach (ecommerce_db.Models.Cliente cliente in Model.clientes) {
             <tr>
                 <td>@cliente.Id</td>
-                <td>@cliente.Name</td>
-                <td>@cliente.email</td>
-                <td>@cliente.telefone</td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Telefone</td>
 
 
                 <td>

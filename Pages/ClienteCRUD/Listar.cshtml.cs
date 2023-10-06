@@ -15,9 +15,9 @@ namespace ecommerce_db.Pages.crud
             _context = context;
         }
 
-        public IList<Clientes> clientes { get; set; }
+        public IList<Cliente> clientes { get; set; }
         public async Task<IActionResult> OnGet() {
-            clientes = await _context.cliente.ToListAsync();
+            clientes = await _context.Clientes.ToListAsync();
 
             return Page();
         }
@@ -28,11 +28,11 @@ namespace ecommerce_db.Pages.crud
 
             }
 
-            var cliente = await _context.cliente.FirstOrDefaultAsync( c => c.Id == id);
+            var cliente = await _context.Clientes.FirstOrDefaultAsync( c => c.Id == id);
 
             //Verifica se foi retornado algum cliente do banco de dados
             if (cliente != null) {
-                _context.cliente.Remove(cliente);
+                _context.Clientes.Remove(cliente);
                 await _context.SaveChangesAsync();
 
             }

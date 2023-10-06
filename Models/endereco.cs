@@ -2,7 +2,7 @@
 
 namespace ecommerce_db.Models
 {
-    public class endereco {
+    public class Endereco {
         [Key]
         public int Id { get; set; }
 

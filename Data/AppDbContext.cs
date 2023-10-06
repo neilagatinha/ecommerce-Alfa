@@ -16,9 +16,10 @@ namespace ecommerce_db.Data
 
         public DbSet<ItemPedido> ItensdoPedido { get; set; }
 
-        public DbSet<endereco> Enderecos { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
-        public DbSet<Clientes> cliente { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 

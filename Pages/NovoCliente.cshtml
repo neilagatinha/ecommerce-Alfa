@@ -1,16 +1,93 @@
 ﻿@page
 @model ecommerce_db.Pages.NovoClienteModel
-@{
+@{}
 
-
-}
 <form method="post">
-	<label asp-for="Cliente.Name">Nome:</label>
-	<imput asp-for="Cliente.Name"/>
-	<span asp-asp-validation-for="Cliente.Nome" classe="text-danger"><</span>
+	<div class="row">
+		<div class="col-6">
 
-	<label asp-for="Cliente.">Nome:</label>
-	<imput asp-for="Cliente.Name" />
-	<span asp-asp-validation-for="Cliente.Nome" classe="text-danger"><</span>
+			<div>  
+			<label asp-for="Cliente.Nome">Nome:</label>
+			<input asp-for="Cliente.Nome" class="form-control"/>
+			<span asp-validation-for="Cliente.Nome" classe="text-danger"></span>
+			</div>
+			<br />
 
-</for>
+			<div>
+			<label asp-for="Cliente.CPF">CPF:</label>
+			<input asp-for="Cliente.CPF"/>
+			<span asp-validation-for="Cliente.CPF" classe="text-danger"></span>
+			</div>
+			<br />
+
+			<div class="row">
+				<div class="col-6">
+					<label asp-for="Cliente.Telefone">telefone:</label>
+					<input asp-for="Cliente.Telefone"class="form-control" />
+					<span asp-validation-for="Cliente.Telefone" classe="text-danger"></span>
+				</div>
+
+				<div class="col-6">
+					<label asp-for="Cliente.Email">Email</label>
+					<input asp-for="Cliente.Email" class="form-control" />
+					<span asp-validation-for="Cliente.Email" class="text-danger"></span>
+				</div>
+				<br />
+			</div>
+
+		</div>
+
+		<div class="col-6">
+
+			<div>
+			<label asp-for="Cliente.Endereco.CEP">CEP:</label>
+			<input asp-for="Cliente.Endereco.CEP"/>
+			<span asp-validation-for="Cliente.Endereco.CEP" classe="text-danger"></span>
+			</div>
+			<br />
+
+			<div>
+			<label asp-for="Cliente.Endereco.Cidade">Cidade:</label>
+			<input asp-for="Cliente.Endereco.Cidade" />
+			<span asp-validation-for="Cliente.Endereco.Cidade" classe="text-danger"></span>
+			</div>
+			<br />
+
+			<div>
+			<label asp-for="Cliente.Endereco.Bairro">Bairro:</label>
+			<input asp-for="Cliente.Endereco.Bairro" />
+			<span asp-validation-for="Cliente.Endereco.Bairro" classe="text-danger"></span>
+			</div>
+			<br />
+
+			<div> 
+			<label asp-for="Cliente.Endereco.Lougadouro">Lougadouro:</label>
+			<input asp-for="Cliente.Endereco.Lougadouro" />
+			<span asp-validation-for="Cliente.Endereco.Lougadouro" classe="text-danger"></span>
+			</div>
+			<br />
+
+			<label asp-for="Cliente.Endereco.UF">UF:</label>
+			<input asp-for="Cliente.Endereco.UF" />
+			<span asp-validation-for="Cliente.Endereco.UF" classe="text-danger"></span>
+			<br />
+			<label asp-for="Cliente.Endereco.Referencia">Referencia:</label>
+			<input asp-for="Cliente.Endereco.Referencia" />
+			<span asp-validation-for="Cliente.Endereco.Referencia" classe="text-danger"></span>
+			<br />
+			<label asp-for="Cliente.Endereco.Numero">Numero:</label>
+			<input asp-for="Cliente.Endereco.Numero" />
+			<span asp-validation-for="Cliente.Endereco.Numero" classe="text-danger"></span>
+			<br />
+
+
+		</div>
+	</div>
+	
+	<div asp-validation-summary="ModelOnly"></div>
+
+
+	<input type="submit" value="Cadastrar" class="btn btn-outline-info" />
+	
+
+</form>

@@ -2,7 +2,7 @@
 
 namespace ecommerce_db.Models
 {
-    public class Clientes
+    public class Cliente
     {
         [Key]
 
@@ -11,7 +11,7 @@ namespace ecommerce_db.Models
         [MaxLength(100, ErrorMessage = "O campo {0} deve ter tamanho igual a {1}")]
         [MinLength(11, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public string Name { get; set; }
+        public string Nome { get; set; }
 
 		[MaxLength(11, ErrorMessage = "O campo {0} deve ter tamanho igual a {1}")]
 		[MinLength(11, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
@@ -20,14 +20,14 @@ namespace ecommerce_db.Models
 
         [EmailAddress(ErrorMessage = "O campo {0} deve conter um endereço de e-mail válido")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public string email  { get; set; }
+        public string Email  { get; set; }
 
  	    [MaxLength(20, ErrorMessage = "O campo {0} deve ter no máximo {1} caracteres.")]
         [MinLength(11,ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres ")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public string telefone { get; set; }
+        public string Telefone { get; set; }
 
-        public endereco? endereco { get; set; }
+        public Endereco? Endereco { get; set; }
 
     }
 }
