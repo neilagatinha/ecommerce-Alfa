@@ -1,0 +1,27 @@
+﻿@page
+@model ecommerce_db.Pages.LoginModel
+@{
+}
+	<form method="post">
+	<div asp-asp-validation-summary="MoldelOnly">
+	</div>
+
+
+		<label asp-for="Dados.Email">Email:</label>
+		<input asp-formaction="Dados.Email"/>
+		<span asp-asp-validation-for="Dados.Email" class="text-black-danger"></span>
+
+		<label asp-for="Dados.Senha">Senha:</label>
+		<input asp-for="Dados.Senha" />
+		<span asp-asp-validation-for="Dados.Senha" class="text-danger"></span>
+
+		<input type="hidden" name="returnUrl" value="@Model.ReturnURL" />
+
+		<label asp-for="Dados.Lembrar">
+			<input asp-for="Dados.Lembrar" />
+			Lembrar de mim
+		</label>
+		<span asp-validation-for="Dados.Lembrar" class="text-danger"></span>
+
+		<input type="submit" value="Login" class="btn btn-outline-info"/>
+	</form>

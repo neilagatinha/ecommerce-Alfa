@@ -9,24 +9,13 @@ namespace ecommerce_db
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var _mySqlaServerVersion = new MySqlServerVersion(new Version(8, 0, 33));
-
-            builder.Services.AddDbContext<AppDbContext>(
-                options => {
-                    options.UseMySql(
-                        builder.Configuration.GetConnectionString("DBString"),
-                        _mySqlaServerVersion,
-                        option => option.EnableRetryOnFailure()
-                    );
-                }
-            ); 
-
-            // Add services to the container.
-            builder.Services.AddRazorPages();
+            var  startup = new Startup(builder.Configuration);
+            startup.ConfigureServices(builder.Services);
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            startup.Configure(app, builder.Environment);
+
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
