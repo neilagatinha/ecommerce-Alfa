@@ -8,12 +8,12 @@
 
 
 		<label asp-for="Dados.Email">Email:</label>
-		<input asp-formaction="Dados.Email"/>
-		<span asp-asp-validation-for="Dados.Email" class="text-black-danger"></span>
+		<input asp-for="Dados.Email"/>
+		<span asp-validation-for="Dados.Email" class="text-black-danger"></span>
 
 		<label asp-for="Dados.Senha">Senha:</label>
 		<input asp-for="Dados.Senha" />
-		<span asp-asp-validation-for="Dados.Senha" class="text-danger"></span>
+		<span asp-validation-for="Dados.Senha" class="text-danger"></span>
 
 		<input type="hidden" name="returnUrl" value="@Model.ReturnURL" />
 

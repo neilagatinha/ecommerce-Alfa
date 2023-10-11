@@ -9,12 +9,12 @@ using System.Diagnostics;
 namespace ecommerce_db.Pages
 {
     public class NovoClienteModel : PageModel{
-        public class Senha{
+        public class Senhas{
             [Required(ErrorMessage = "O campo {0} é de preenchimento obrigatório.")]
             [StringLength(16, ErrorMessage = "O campo \"{0}\" deve ter pelo menos {2} e no máximo {1} caracteres", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
-            public string senha { get; set; }
+            public string Senha { get; set; }
 
             [Required(ErrorMessage = "O campo {0} é de preenchimento obrigatório.")]
             [DataType(DataType.Password)]
@@ -42,7 +42,7 @@ namespace ecommerce_db.Pages
         public Cliente Cliente { get; set; }
 
         [BindProperty]
-        public Senha SenhasUsuarios { get; set; }
+        public Senhas SenhasUsuarios { get; set; }
         public AppDbContext Context { get; }
 
         public UserManager<AppUser> UserManager { get; }
@@ -91,7 +91,7 @@ namespace ecommerce_db.Pages
                 };
 
                 //cria usuário no banco de dados
-                var result = await _userManager.CreateAsync(usuario, SenhasUsuarios.senha);
+                var result = await _userManager.CreateAsync(usuario, SenhasUsuarios.Senha);
 
                 //se a criação do usuário Identity foi bem sucedida
                 if (result.Succeeded)

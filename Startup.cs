@@ -63,7 +63,7 @@ namespace ecommerce_db
             services.AddDbContext<AppDbContext>(
                 options => {
                     options.UseMySql(
-                           Configuration.GetConnectionString("DBString"),
+                           Configuration.GetConnectionString("DBStringTest"),
                         _mySqlaServerVersion,
                         option => option.EnableRetryOnFailure()
                     );
@@ -80,11 +80,20 @@ namespace ecommerce_db
             {
                 app.UseExceptionHandler("/Error");
             }
+
             app.UseStaticFiles();
+
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => {
+                endpoints.MapRazorPages();
+                endpoints.MapControllers();
+            });
 
             var defaultCulture = new CultureInfo("pt-BR");
             var localizationOptions = new RequestLocalizationOptions

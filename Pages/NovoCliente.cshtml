@@ -80,8 +80,16 @@
 			<span asp-validation-for="Cliente.Endereco.Numero" classe="text-danger"></span>
 			<br />
 
+			<label asp-for="SenhasUsuarios.Senha">Senhas:</label>
+			<input asp-for="SenhasUsuarios.Senha" class="form-control" />
+			<span asp-validation-for="SenhasUsuarios.Senha" classe="text-danger"></span>
 
+			<label asp-for="SenhasUsuarios.ConfirmarSenha">Confirmar Senha:</label>
+			<input asp-for="SenhasUsuarios.ConfirmarSenha" class="form-control" />
+			<span asp-validation-for="SenhasUsuarios.ConfirmarSenha" classe="text-danger"></span>
 		</div>
+
+
 	</div>
 	
 	<div asp-validation-summary="ModelOnly"></div>

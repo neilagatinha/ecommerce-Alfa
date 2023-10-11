@@ -22,35 +22,28 @@
                 <td>@cliente.Email</td>
                 <td>@cliente.Telefone</td>
 
-
                 <td>
-
 					<a  class="btn btn-outline-success" asp-page="./Incluir">
 						Incluir
 					</a>
-
-
                 </td>
                 
                 <td>
-
                     <a class="btn btn-outline-warning"
-                            asp-page="./Alterar"
-                            asp-route-id="@cliente.Id"
- 
+                        asp-page="./Alterar"
+                        asp-route-id="@cliente.Id"
                     >
-                            Alterar
-                        </a>
+                        Alterar
+                    </a>
                 </td>
                 <td>
-
-                       <form
-                           method="post"
-                           asp-page-handler="delete"
-                           asp-route-id="@cliente.Id"
-                       >
+                    <form
+                        method="post"
+                        asp-page-handler="delete"
+                        asp-route-id="@cliente.Id"
+                    >
                         <button class="btn btn-outline-danger">Excluir</button>
-                       </form>
+                    </form>
                 </td>
             </tr>
     }</tbody>
